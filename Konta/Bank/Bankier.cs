@@ -97,8 +97,9 @@ namespace Bank
 
             try
             {
-                biezaceKonto?.Wyplata(kwota);
-                kontoOdbiorcy?.Wplata(kwota);
+                biezaceKonto?.WyslaniePrzelewu(kwota);
+                kontoOdbiorcy?.OdebraniePrzelewu(kwota);
+                
 
             }
             catch (Exception exc)

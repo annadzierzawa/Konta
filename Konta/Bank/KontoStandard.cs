@@ -24,6 +24,19 @@ namespace Bank
             saldo += kwota;
             return true;
         }
+        internal virtual bool OdebraniePrzelewu(decimal kwota)
+        {
+            if (kwota < 0) throw new Exception("Niepoprawna kwota");
+            saldo += kwota;
+            return true;
+        }
+        internal virtual bool WyslaniePrzelewu(decimal kwota)
+        {
+            if (kwota <= 0) throw new Exception("Niepoprawna kwota");
+            if (saldo < kwota) return false;
+            saldo -= kwota;
+            return true;
+        }
         internal virtual bool Wyplata(decimal kwota)
         {
             if (kwota <= 0) throw new Exception("Niepoprawna kwota");
